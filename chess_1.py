@@ -1,4 +1,5 @@
 class ChessFigure:
+    """Chess piece class"""
     IMG = None
     def __init__(self, color):
         self.color = color
@@ -26,17 +27,20 @@ class Rook(ChessFigure):
     IMG = ('♖', '♜')
 
 class ChessBoard:
+    """Chess board class"""
     def __init__(self):
         self.board = [['.']*8 for y in range(8)]
         self.placing_pawn()
         self.placing_figure()
 
     def placing_pawn(self):
+        """Placement of pawns on the chessboard """
         for pawn in range(0, 8):
             self.board[1][pawn] = Pawn(0) # color white
             self.board[6][pawn] = Pawn(1) # color black
 
     def placing_figure(self):
+        """Arrangement of pieces on the chessboard """
         for f in range(0, 8, 7):
             if f == 0:
                 color = 0 # white color
